@@ -5,7 +5,7 @@ import numpy as np
 def learning_module(face_cascade,people_name):
     
     people = people_name
-    DIR = "C:/Users/ozler/Desktop/BitirmeProjesi/newImages/"
+    DIR = "C:/Users/ozler/Desktop/Bitirme/newImages/"
     features = []
     labels = []
     

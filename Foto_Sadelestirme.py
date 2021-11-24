@@ -16,8 +16,8 @@ def sade(face_cascade, image_path):
         #bu png olayına bak
         imgs = glob.glob(f"{new_path}/*.png")
         
-        if os.path.exists(f"C:/Users/ozler/Desktop/BitirmeProjesi/newImages/{path}") == False:
-            os.mkdir(f"C:/Users/ozler/Desktop/BitirmeProjesi/newImages/{path}")
+        if os.path.exists(f"C:/Users/ozler/Desktop/Bitirme/newImages/{path}") == False:
+            os.mkdir(f"C:/Users/ozler/Desktop/Bitirme/newImages/{path}")
        
         i = 0
         for resim in imgs:

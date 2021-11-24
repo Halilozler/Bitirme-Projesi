@@ -14,9 +14,9 @@ from Database import Sql_Transactions as sql
 """
 Cihaz_Id = 1
 
-yuz_Tanima_Model = "C:/Users/ozler/Desktop/BitirmeProjesi/Models/haarcascade_frontalface_default.xml" 
-image_Path = "C:/Users/ozler/Desktop/BitirmeProjesi/Images"
-newImage_path = "C:/Users/ozler/Desktop/BitirmeProjesi/newImages"
+yuz_Tanima_Model = "C:/Users/ozler/Desktop/Bitirme/Models/haarcascade_frontalface_default.xml"
+image_Path = "C:/Users/ozler/Desktop/Bitirme/Images"
+newImage_path = "C:/Users/ozler/Desktop/Bitirme/newImages"
 
 people = os.listdir(image_Path)
 #yüz tanıma Modeli import ediyoruz: 
@@ -70,7 +70,7 @@ while True:
                     liste.append(people[label])
                     if confidence > 65 and people[label] != "Other":
                         print(f"Yazdı {people[label]}")
-                        sql.Add("tbl_Yoklama", ("Ogrenci_Id,Ders_Tarih_Id"), (people[label], id))
+                        sql.Add("tbl_Yoklama", ("Ogrenci_Id,DersSaat_Id"), (people[label], id))
 
                 int_confidence = int(confidence)
 
