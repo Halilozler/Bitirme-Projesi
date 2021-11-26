@@ -70,7 +70,7 @@ while True:
                     liste.append(people[label])
                     if confidence > 65 and people[label] != "Other":
                         print(f"Yazdı {people[label]}")
-                        sql.Add("tbl_Yoklama", ("Ogrenci_Id,DersSaat_Id"), (people[label], id))
+                        sql.Add("tbl_Yoklama", ("Ogrenci_Id,DersSaat_Id,Durum"), (people[label], id, 1))
 
                 int_confidence = int(confidence)
 
