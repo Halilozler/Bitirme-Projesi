@@ -40,7 +40,7 @@ face_recognizer.read("Models/face_trained.yml")
 
 
 #Kamerayı Okuyoruz:
-vc = cv.VideoCapture(0) 
+vc = cv.VideoCapture(0)
 vc.set(3,480)
 vc.set(4,480)
 
