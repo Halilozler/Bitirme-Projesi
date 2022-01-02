@@ -1,7 +1,6 @@
 import numpy as np
 import cv2 as cv
 import os
-from random import randint
 from datetime import datetime as dt
 
 import Foto_Sadelestirme
@@ -12,7 +11,7 @@ from Database import Sql_Transactions as sql
 """
 Çihaz = 1 sınıf_id = 1 olana ait yani 1.sınıfta 
 """
-Cihaz_Id = 1
+Cihaz_Id = 1 #cihaz id sine 1 dedik.
 
 yuz_Tanima_Model = "C:/Users/ozler/Desktop/Bitirme/Models/haarcascade_frontalface_default.xml"
 image_Path = "C:/Users/ozler/Desktop/Bitirme/Images"
@@ -22,6 +21,7 @@ people = os.listdir(image_Path)
 #yüz tanıma Modeli import ediyoruz: 
 face_cascade = cv.CascadeClassifier(yuz_Tanima_Model)
 
+#newImage adında dosya yok ise oluştur.
 if os.path.exists(newImage_path) == False:
     os.mkdir(newImage_path)
 
@@ -67,8 +67,8 @@ while True:
                 try:
                     liste.index(people[label])
                 except:#eğer yoksa buraya girer
-                    liste.append(people[label])
                     if confidence > 65 and people[label] != "Other":
+                        liste.append(people[label])
                         print(f"Yazdı {people[label]}")
                         sql.Add("tbl_Yoklama", ("Ogrenci_Id,DersSaat_Id,Durum"), (people[label], id, 1))
 
