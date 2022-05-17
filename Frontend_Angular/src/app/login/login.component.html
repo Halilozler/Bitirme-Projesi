@@ -1,0 +1,9 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <form #form="ngForm" (ngSubmit)="login()">
+            <input #username required  type="text" id="login" class="fadeIn second" name="login" placeholder="Kullanıcı Adı" [(ngModel)]="auth.kullaniciadi">
+            <input #password required  type="password" id="password" class="fadeIn third" name="login" placeholder="Şifre" [(ngModel)]="auth.sifre">
+            <input type="submit" class="fadeIn fourth" value="Giriş">
+        </form>
+    </div>
+</div>

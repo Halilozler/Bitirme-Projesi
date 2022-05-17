@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Öğretmen Adını Giriniz." [(ngModel)]="kelime" (change)="getOgretmen()" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="getOgretmen()">Ara</button>
+        </div>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" [(ngModel)]="isChecked" (change) ="iptalOgretmen()">
+        <label class="form-check-label" for="flexCheckIndeterminate">
+            Kaldırılan Öğretmenleri Göster
+        </label>
+    </div>
+</div>
+
+<div>
+    <table class="table table-striped" >
+        <thead>
+            <tr>
+                <th scope="col">Öğretmen Tc</th>
+                <th scope="col">Öğretmen Adı</th>
+            </tr>
+        </thead>
+        <ng-container *ngIf="hepsiniGoster">
+            <tbody *ngFor = "let p of Ogretmen">
+                <tr *ngIf="!p.durum" style="background-color: black;">
+                    <th style="color: aliceblue;">{{p.ogretmen_Tc}}</th>
+                    <td style="color: aliceblue;">{{p.ogretmen_Adi}}  {{p.ogretmen_Soyadi}}</td>
+                </tr>
+                <tr *ngIf="p.durum">
+                    <th>{{p.ogretmen_Tc}}</th>
+                    <td>{{p.ogretmen_Adi}}  {{p.ogretmen_Soyadi}}</td>
+                </tr>
+            </tbody>
+        </ng-container>
+        <ng-container *ngIf="!hepsiniGoster">
+            <tbody *ngFor = "let p of oOgretmen">
+                <tr>
+                    <th>{{p.ogretmen_Tc}}</th>
+                    <td>{{p.ogretmen_Adi}}  {{p.ogretmen_Soyadi}}</td>
+                </tr>
+            </tbody>
+        </ng-container>
+    </table>
+</div>

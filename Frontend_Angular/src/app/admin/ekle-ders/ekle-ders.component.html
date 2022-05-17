@@ -1,0 +1,59 @@
+<div class="container" style="margin-top: 100px;">
+    <div class="row">
+        <div class="col-12" style="margin-bottom: 50px;">
+            <form #form="ngForm" (ngSubmit)="ekle()">
+                <h2>Ders Ekle</h2>
+                <hr>
+
+                <div class="form-group">
+                    <input required minlength="5" type="text" name="dersKodu" #dersKodu="ngModel" [(ngModel)]="model.dersKodu"  class="form-control" placeholder="Ders Kodu">
+                    <div class="alert alert-danger" *ngIf="dersKodu.invalid && dersKodu.touched">
+                        <p *ngIf="dersKodu.errors?.['required']">Ders Kodu Girilmeli</p>
+                    </div>
+                    <br>
+                </div>
+                <div class="form-group">
+                    <input required  type="text" name="dersAdi" #dersAdi="ngModel" [(ngModel)]="model.dersAdi"  class="form-control" placeholder="Ders Adı">
+                    <div class="alert alert-danger" *ngIf="dersAdi.invalid && dersAdi.touched">
+                        <p *ngIf="dersAdi.errors?.['required']">Ders Adı Girilmeli</p>
+                    </div>
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Bolumler: </label>
+                    <select class="custom-select mr-sm-2" [(ngModel)]="secilenBolum" name="bolum">
+                        <option *ngFor = "let p of bolum" [value]="p.bolumId" [selected]="secimBolum()">{{p.bolumAd}}</option>
+                    </select>
+                    <br>
+                </div>
+
+                <div class="form-group" *ngIf = "ogretmenAc">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Öğretmenler: </label>
+                    <select class="custom-select mr-sm-2" [(ngModel)]="secilenOgretmen" name="ogretmen">
+                        <option *ngFor = "let p of ogretmenler" [value]="p.id" [selected]="secimOgretmen()">{{p.ogretmen_Adi}}  {{p.ogretmen_Soyadi}}</option>
+                    </select>
+                    <br>
+                </div>
+
+                <div class="form-group" *ngIf = "ogretimAc">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Öğretim: </label>
+                    <select class="custom-select mr-sm-2" [(ngModel)]="secilenOgretim" name="ogretim">
+                        <option *ngFor = "let p of ogretim" [value]="p.id" [selected]="secimOgretim()">{{p.ogretim_Adi}}</option>
+                    </select>
+                    <br>
+                </div>
+
+                <div class="form-group" *ngIf = "sinifAc">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Sınıf: </label>
+                    <select class="custom-select mr-sm-2" [(ngModel)]="secilenSinif" name="sinif">
+                        <option *ngFor = "let p of sinif" [value]="p.id">{{p.sinif_Adi}}</option>
+                    </select>
+                    <br>
+                </div>
+                
+
+                <button [disabled]="form.invalid" style="float: right;" type="submit" class="btn btn-primary btn-block">Dersi Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

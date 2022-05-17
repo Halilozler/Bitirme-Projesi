@@ -1,0 +1,25 @@
+<style>
+    .vr{
+        border-left: 5px solid #e67e22;
+    }
+</style>
+
+<navbar></navbar>
+
+<div class="row">
+    <div class="row justify-content-md-center">
+        <div class="col-9">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="vr" style="height: 625px;"></div>
+        <div class="col-2">
+            <div>
+                <h4 style="text-align: center;" class="display-6">Bildirimler</h4>
+                <hr>
+            </div>
+            <div style="width: 200px; overflow: hidden; text-overflow: ellipsis;">
+                <bildirim></bildirim>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div>
+    <button *ngIf="butonaktif" type="button" class="btn btn-info float-end" (click)="duzenle()">Düzenle</button>
+    <!--<button type="button" class="btn btn-dark float-end" >İndir</button>-->
+</div>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ad Soyad</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor= "let p of hepsi">
+                <td></td>
+                <td>{{p.ogrenciAd}}  {{p.ogrenciSoyad}}</td>
+                <td *ngIf="!butonaktif">
+                    <button *ngIf="!p.durum" type="button" class="btn btn-primary" (click)="ekle(p.ogrenciId,p)">Yoklamaya Ekle</button>
+                    <button *ngIf="p.durum" type="button" class="btn btn-danger" (click)="sil(p.yoklamaId,p.ogrenciId,p)">Yoklamadan Sil</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

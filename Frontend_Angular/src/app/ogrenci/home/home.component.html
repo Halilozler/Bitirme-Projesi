@@ -1,0 +1,63 @@
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Ders Kodu</th>
+            <th scope="col">Ders Adı</th>
+            <th scope="col">Ogretmen</th>
+            <th scope="col">Toplam Ders</th>
+            <th scope="col">Katıldığın Ders</th>
+            <th scope="col">
+                Dersler
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let p of dersler">
+            <th>{{p.dersKodu}}</th>
+            <td>{{p.dersAdi}}</td>
+            <td>{{p.ogretmenAdi}}</td>
+            <td>{{p.toplamDers}}</td>
+            <td>{{p.katildigiDers}}</td>
+            <td>
+                <a class="btn" (click)="select(p.ders_Id)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!--
+<ul class="list">
+    <li>
+        <span>Ders Kodu</span>
+        <span>Ders Adı</span>
+        <span>Ogretmen</span>
+        <span>Toplam Ders</span>
+        <span>Katıldığın Ders</span>
+        <span></span>
+    </li>
+    <li *ngFor = "let p of dersler">
+        <span>{{p.dersKodu}}</span>
+        <span>{{p.dersAdi}}</span>
+        <span>{{p.ogretmenAdi}}</span>
+        <span>{{p.toplamDers}}</span>
+        <span>{{p.katildigiDers}}</span>
+        <span>
+            <a class="btn" (click)="select(p.ders_Id)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+                </svg>
+            </a>
+        </span>
+    </li>
+</ul>-->
+
+
+
+
+

@@ -1,0 +1,19 @@
+<div class="form-group" style="margin-top: 10px; align-items: center; width: 400px;">
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Ders seç: </label>
+    <select class="custom-select mr-sm-2" [(ngModel)]="secilenDers" name="ders">
+        <option *ngFor = "let p of ders" [value]="p.dersId" [selected]="selectedDers()">{{p.dersKodu}} - {{p.dersAdi}}</option>
+    </select>
+    <br>
+</div>
+<div style="margin-top: 20px; width: 400px; margin-left: 30px; align-items: center;">
+    <input type="datetime-local" [(ngModel)]="selectedDate" value="{{min}}" min="{{min}}">
+    <!--<dl-date-time-picker 
+        startView="day"
+        maxView="year"
+        minView="minute"
+        [(ngModel)]="selectedDate"
+    >
+    </dl-date-time-picker>-->
+</div>
+<button type="submit" class="btn btn-primary mb-2" style="float: right; margin-right: 15px;" (click)="sec()">Seç</button>
+

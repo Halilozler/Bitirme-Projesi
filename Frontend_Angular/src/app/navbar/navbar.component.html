@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="https://kku.edu.tr/Anasayfa">
+      <img src="https://upload.wikimedia.org/wikipedia/tr/f/f4/Kırıkkale_üniversitesi_yeni_logosu.jpeg" alt="" style="width:50px;height:50px;">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a *ngIf="ogrenci" class="nav-item nav-link active" [routerLink]="['/ogrenci']">Derslerin</a>
+      <a *ngIf="ogretmen" class="nav-item nav-link active" [routerLink]="['/ogretmen']">Derslerin</a>
+      <a *ngIf="!admin" class="nav-item nav-link active" style="margin-left: 5px;"[routerLink]="['/g_ders']">Gelecek Derslerin</a>
+      <a *ngIf="ogretmen" class="nav-item nav-link active" style="margin-left: 5px;"[routerLink]="['/ogretmen/degisiklik']">Ders Değişikliği</a>
+
+      <a *ngIf="admin" class="nav-item nav-link active" [routerLink]="['/admin']">Dersler</a>
+      <a *ngIf="admin" class="nav-item nav-link active" [routerLink]="['/admin/ogretmen']">Öğretmen</a>
+      <a *ngIf="admin" class="nav-item nav-link active" [routerLink]="['/admin/ogrenci']">Öğrenci</a>
+      <a *ngIf="admin" class="nav-item nav-link active" style="margin-left: 5px; cursor: pointer;" (click)="dersSaat()">Ders Saat Ekle</a>
+
+      <a class="nav-item nav-link" style="margin-left: 5px; cursor: pointer;" (click)="cikis()">Çıkış</a>
+    </div>
+  </div>
+</nav>

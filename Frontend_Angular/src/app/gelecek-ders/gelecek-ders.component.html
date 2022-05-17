@@ -1,0 +1,18 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Ders Kodu</th>
+            <th scope="col">Ders Adı</th>
+            <th scope="col">Sınıfı</th>
+            <th scope="col">Ders Saati</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let p of dersler">
+            <th>{{p.dersKodu}}</th>
+            <td>{{p.dersAdi}}</td>
+            <td>{{p.sinifi}}</td>
+            <td>{{p.tarih}}</td>
+        </tr>
+    </tbody>
+</table>

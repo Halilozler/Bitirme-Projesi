@@ -1,0 +1,14 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ad Soyad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let p of yoklama">
+            <th scope="row">{{p.numara}}</th>
+            <td>{{p.ogrenciAd}}  {{p.ogrenciSoyad}}</td>
+        </tr>
+    </tbody>
+</table>

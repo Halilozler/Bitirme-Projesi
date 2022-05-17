@@ -1,0 +1,17 @@
+<p *ngIf = "!bildirimKontrol">Bildirim bulunmamakta</p>
+
+<div *ngIf="bildirimKontrol">
+    <table class="table table-striped" *ngFor = "let p of bildirim" >
+        <thead>
+            <tr>
+                <th scope="col">{{p.baslik}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>· ({{p.ders_Kodu}}) {{p.ders_Adi}}</th>
+                <th>· {{p.dersSaati}}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,22 @@
+<form>
+    <div class="form-row align-items-center">
+        <div class="col-auto my-1">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Derslerin: </label>
+            <select class="custom-select mr-sm-2" [(ngModel)]="secilenDers" name="ders">
+                <option *ngFor = "let p of dersleri" [value]="p.ders_Id" >{{p.dersAdi}}</option>
+            </select>
+        </div>
+        <div class="col-auto my-1" *ngIf="birinciAc">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Tarihi Seç: </label>
+            <select class="custom-select mr-sm-2" [(ngModel)]="secim" name="tarih">
+                <option *ngFor = "let p of gelecekDers" [value]="p.dersSaat_id" >{{p.tarih}}</option>
+            </select>
+        </div>
+        <div>
+            <button *ngIf="button1" (click)="dersSecme()">Seç</button>
+            <button *ngIf="button2" type="button" class="btn btn-danger" (click)="iptal()">İptal Et</button>
+        </div>
+    </div>
+</form>
+
+

@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Ders Adını Giriniz." [(ngModel)]="kelime" (change)="getDersler()" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="getDersler()">Ara</button>
+        </div>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" [(ngModel)]="isChecked" (change) ="iptalDersler()">
+        <label class="form-check-label" for="flexCheckIndeterminate">
+            Kaldırılan Dersleri Göster
+        </label>
+        <button class="btn btn-success" style="float: right;" type="button" (click)="ekle()">Ekle</button>
+        <button class="btn btn-danger" style="float: right; margin-right: 10px;" type="button" (click)="iptalSekme()">Düzenle</button>
+    </div>
+</div>
+
+<div>
+    <table class="table table-striped" >
+        <thead>
+            <tr>
+                <th scope="col">Ders Kodu</th>
+                <th scope="col">Ders Adı</th>
+                <th scope="col">Öğretmen</th>
+                <th scope="col">Bölüm</th>
+                <th scope="col">Öğretim Türü</th>
+                <th scope="col">Sınıfı</th>
+            </tr>
+        </thead>
+        <ng-container *ngIf="hepsiniGoster">
+            <tbody *ngFor = "let p of dersler">
+                <tr *ngIf="!p.durum" style="background-color: black;">
+                    <th style="color: aliceblue;">{{p.dersKodu}}</th>
+                    <td style="color: aliceblue;">{{p.dersAdi}}</td>
+                    <td style="color: aliceblue;">{{p.ogretmenAd}}  {{p.ogretmenSoyad}}</td>
+                    <td style="color: aliceblue;">{{p.bolumAd}}</td>
+                    <td style="color: aliceblue;">{{p.ogretimAd}}</td>
+                    <td style="color: aliceblue;">{{p.sinifAd}}</td>
+                </tr>
+                <tr *ngIf="p.durum">
+                    <th>{{p.dersKodu}}</th>
+                    <td>{{p.dersAdi}}</td>
+                    <td>{{p.ogretmenAd}}  {{p.ogretmenSoyad}}</td>
+                    <td>{{p.bolumAd}}</td>
+                    <td>{{p.ogretimAd}}</td>
+                    <td>{{p.sinifAd}}</td>
+                    <td *ngIf="iptalAc">
+                        <button class="btn btn-danger" type="button" (click)="iptal(p.dersId)">İptal</button>
+                    </td>
+                </tr>
+            </tbody>
+        </ng-container>
+        <ng-container *ngIf="!hepsiniGoster">
+            <tbody *ngFor = "let p of oDersler">
+                <tr>
+                    <th>{{p.dersKodu}}</th>
+                    <td>{{p.dersAdi}}</td>
+                    <td>{{p.ogretmenAd}}  {{p.ogretmenSoyad}}</td>
+                    <td>{{p.bolumAd}}</td>
+                    <td>{{p.ogretimAd}}</td>
+                    <td>{{p.sinifAd}}</td>
+                    <td *ngIf="iptalAc">
+                        <button class="btn btn-danger" type="button" (click)="iptal(p.dersId)">İptal</button>
+                    </td>
+                </tr>
+            </tbody>
+        </ng-container>
+    </table>
+</div>
+
+
+
